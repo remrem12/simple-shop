@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(process.env.MONGODB_URI) 
 
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
@@ -74,8 +74,6 @@ app.post('/api/product/shop', (req, res) => {
     })
   })
 })
-
-
 
 
 
