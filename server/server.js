@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 mongoose.Promise = global.Promise;
-mongoose.connect(process.env.DATABASE)
+mongoose.connect(process.env.MONGODB_URI)
 
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
