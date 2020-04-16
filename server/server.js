@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 mongoose.Promise = global.Promise;
-console.log(process.env.MONGODB_URI)
+console.log("mongo uri: ",process.env.MONGODB_URI)
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }) 
 
 app.use(bodyParser.urlencoded({ extend: true }));
