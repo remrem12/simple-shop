@@ -10,7 +10,7 @@ require('dotenv').config();
 
 mongoose.Promise = global.Promise;
 console.log("mongo uri: ",process.env.MONGODB_URI)
-mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true }) 
+mongoose.connect('mongodb://localhost:27017/koumakan', { useNewUrlParser: true }) 
 
 app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
