@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({ extend: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use(express.static('client/build'))
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME, 
@@ -408,8 +409,17 @@ app.post('/api/users/successBuy', auth, (req, res) => {
 })
 
 
-const port = process.env.PORT || 3002;
 
+// DEFAULT 
+if(process.env.NODE_ENV === 'Production'){
+  const path = require('path')
+  app.get('/*', (req, res) => {
+    res.sendfile(path.resolve(__dirname, '../client', 'build', 'index.html'))
+  })
+}
+
+
+const port = process.env.PORT || 3002;
 app.listen(port, () => {
   console.log(`Server running at ${port}`)
 })
